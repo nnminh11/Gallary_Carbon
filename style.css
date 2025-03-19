@@ -1,0 +1,104 @@
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Fixed Header */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Search Input */
+input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Scrollable Main Section */
+main {
+    flex: 1;
+    text-align: center;
+    overflow-y: auto;
+    padding: 100px 20px 80px; /* Adjust for header & footer */
+    height: calc(100vh - 140px);
+}
+
+/* 🏗️ Responsive Masonry Layout */
+.gallery {
+    column-gap: 15px;
+    padding: 20px;
+    column-width: 300px; /* 🔥 Automatically adjusts columns */
+}
+
+/* 🖼️ Images: Fixed width (100% of column), Flexible height */
+.gallery img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* Fixed Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    z-index: 1000;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1200px) {
+    .gallery {
+        column-width: 250px; /* Smaller columns */
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery {
+        column-width: 200px; /* More columns on small screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        column-count: 2; /* Only 2 columns on mobile */
+    }
+}
+
+@media (max-width: 400px) {
+    .gallery {
+        column-count: 1; /* Only 1 column on very small screens */
+    }
+}
